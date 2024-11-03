@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Interactive Website</title>
+      <link rel="stylesheet" href="style.css" />
+   </head>
+   <body>
+      <!-- Navbar -->
+      <nav>
+         <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#strategy">Strategy</a></li>
+            <li><a href="#priority-courses">Priority Courses</a></li>
+            <li><a href="#chatbot">Chatbot</a></li>
+            <li><a href="#account">Account</a></li>
+         </ul>
+      </nav>
+
+      <!-- Home Section -->
+      <section id="home">
+         <h2>Welcome to your AI-driven Assistant!</h2>
+         <img src="./assets/wizz.png" alt="App Overview" class="home-image" />
+         <p class="home-text">
+            This app is designed to help you plan and manage your semester
+            courses efficiently. Explore various strategies for course
+            selection, prioritize your must-take courses, and use the integrated
+            chatbot for quick assistance. To start using the full functionality
+            of the app, please make sure to fill in your "Institution Details"
+            under the "Account" section. This step ensures access to the app's
+            primary features, including course selection and chatbot
+            interactions.
+         </p>
+      </section>
+
+      <!-- Strategy Section -->
+      <section id="strategy">
+         <h2>Strategy</h2>
+         <p id="explanatory-text-strategy">
+            Here, you can select your course selection strategy for the
+            semester. Choose criteria that best match your goals. Use the slider
+            below to set the total ECTS you want to aim for. Tailor your
+            experience and make your semester plan fit your needs perfectly!
+         </p>
+         <div class="box-container">
+            <div class="box" id="suggestions-box">
+               <h3>How should your courses be selected?</h3>
+               <div id="suggestions">
+                  <!-- Tags will be populated here -->
+                  <span class="tag">Interest</span>
+                  <span class="tag">Easy ECTS</span>
+                  <span class="tag">Recommendations</span>
+                  <span class="tag">Career Growth</span>
+                  <span class="tag">Expert Lecturers</span>
+                  <span class="tag">Practical Learning</span>
+                  <span class="tag">Peer Reviews</span>
+                  <span class="tag">Flexible Schedule</span>
+                  <span class="tag">Online Access</span>
+                  <span class="tag">High Demand</span>
+                  <span class="tag">Short Duration</span>
+                  <span class="tag">Advanced Topics</span>
+                  <span class="tag">Introductory Level</span>
+                  <span class="tag">Popular Courses</span>
+                  <span class="tag">Low Workload</span>
+               </div>
+            </div>
+            <div class="box" id="configuration-box">
+               <h3>Configuration</h3>
+               <div id="selected-tags">
+                  <!-- Selected tags will move here -->
+               </div>
+            </div>
+         </div>
+         <div class="slider-container">
+            <input
+               type="range"
+               id="ects-slider"
+               min="0"
+               max="42"
+               step="1"
+               value="30"
+               oninput="updateECTSValue(this.value)"
+            />
+            <span id="ects-value">30 ECTS</span>
+         </div>
+      </section>
+
+      <!-- Priority Courses Section -->
+      <section id="priority-courses">
+         <h2>Priority Courses</h2>
+         <p class="explanatory-text-priority-courses">
+            Below is a list of courses available at your institution. You can
+            mark courses as priority to ensure they are included in your final
+            course selection. Prioritizing courses helps secure your spot and
+            streamline your academic planning.
+         </p>
+         <ul id="courses-list" style="display: none"></ul>
+      </section>
+
+      <!-- Chatbot Section -->
+      <section id="chatbot">
+         <h2>Chatbot</h2>
+         <div id="chat-box"></div>
+         <div id="chat-container">
+            <input
+               type="text"
+               id="chat-input"
+               placeholder="Type your message..."
+            />
+            <button id="send-btn">Send</button>
+         </div>
+      </section>
+
+      <!-- Account Section -->
+      <section id="account">
+         <h2>Account</h2>
+         <form>
+            <!-- Container for two columns -->
+            <div class="form-columns">
+               <div class="form-column">
+                  <h3>Personal Details</h3>
+                  <label for="name">Name:</label>
+                  <input type="text" id="name" /><br />
+
+                  <label for="full-name">Full Name:</label>
+                  <input type="text" id="full-name" /><br />
+
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" /><br />
+
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" /><br />
+               </div>
+
+               <div class="form-column">
+                  <h3>Institution Details</h3>
+                  <label for="university">Select Your University:</label>
+                  <select id="university">
+                     <option value="hsg">HSG</option>
+                     <option value="uzh">UZH</option>
+                     <option value="hslu">HSLU</option>
+                     <option value="ost">OST</option></select
+                  ><br />
+
+                  <label for="institution-email">Email:</label>
+                  <input type="email" id="institution-email" /><br />
+
+                  <label for="additional-password">Password:</label>
+                  <input type="password" id="additional-password" /><br />
+               </div>
+            </div>
+
+            <!-- Payment Section -->
+            <div class="payment-container">
+               <div class="payment-info-left">
+                  <h3>Payment</h3>
+                  <span class="status" style="color: green">Status: Paid</span>
+               </div>
+               <div class="payment-info">
+                  <h4>TWINT</h4>
+                  <p>
+                     TWINT is the preferred payment method for this app. Please
+                     scan the QR code on the right to complete your payment.
+                  </p>
+               </div>
+               <div class="payment-qr">
+                  <img src="./assets/QR_deWP.svg" alt="QR Code" />
+               </div>
+            </div>
+         </form>
+      </section>
+
+      <script src="script.js"></script>
+   </body>
+</html>
